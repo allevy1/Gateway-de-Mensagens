@@ -1,0 +1,8 @@
+1 Novamente entender a fundo como funciona o Record
+2 Entender o fluxo de informações de APIs que enviam dados para o Record(Principalmente o 
+  porque no record temos a atribuição de valores direto da api)
+3 Entender o que é o Docker e estudar todos os conceitos indicados pelo mentor(Gemini)
+4 Estudar e entender o que é o Docker
+5 Entender o que é o RabbitMQ, o que ele realmente faz e porque preciso do docker para rodar ele
+6 Pesquisar o que é Mensageria(em expecífico entender essa frase "um sistema de mensagens permite que as 
+  aplicações trabalhem juntas, mas permaneçam desacopladas.")
