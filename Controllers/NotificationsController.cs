@@ -13,13 +13,11 @@ public class NotificationController : ControllerBase
         _bus = bus;
     }
 
-    // até aqui foi onde vi no artigo lido, tudo abaixo daqui foi para o exemplo
-
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] NotificationRequest request)
     {
         await _bus.Publish(request);
 
-        return Ok("Enviou a putaria");
+        return Ok("Sucesso!");
     }
 }

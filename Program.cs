@@ -11,6 +11,11 @@ builder.Services.AddMassTransit(x =>
             // 2. Endereço do seu Docker (localhost é o padrão)
             cfg.Host("localhost");
 
+            cfg.UseMessageRetry(r =>
+            {
+                r.Interval(5, TimeSpan.FromSeconds(3));
+            });
+
             // 3. Isso cria a fila automaticamente no RabbitMQ
             cfg.ConfigureEndpoints(context);
         }

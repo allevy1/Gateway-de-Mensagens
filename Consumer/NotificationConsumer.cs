@@ -6,8 +6,6 @@ public class NotificationRequestConsumer : IConsumer<NotificationRequest>
     {
         var dados = context.Message;
 
-        Console.WriteLine($"...");
-
         await Task.CompletedTask;
     }
 }
