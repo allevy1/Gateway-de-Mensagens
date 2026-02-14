@@ -2,10 +2,6 @@
 {
     public record NotificationRequest
     {
-        // [Required] [EmailAddress] string email,
-        // [Required] [MaxLength(50000), MinLength(10)] string mensagem,
-        // [Required] string canal
-
         [Required]
         [EmailAddress]
         public string Email { get; init; } = string.Empty;

@@ -23,6 +23,9 @@ builder.Services.AddMassTransit(x =>
 });
 
 builder.Services.AddControllers();
+builder.Services.AddScoped<EmailService>();
+builder.Services.AddScoped<SmsService>();
+builder.Services.AddScoped<WhatsappService>();
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
