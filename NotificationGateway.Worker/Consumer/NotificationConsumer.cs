@@ -1,4 +1,4 @@
-namespace NotificationGateway.Api.Consumer;
+namespace NotificationGateway.Worker.Consumer;
 
 public class NotificationRequestConsumer : IConsumer<NotificationRequest>
 {
@@ -44,14 +44,12 @@ public class NotificationRequestConsumer : IConsumer<NotificationRequest>
                     await _smsService.SendAsync(context.Message);
                     break;
                 default:
-                    // Log de Aviso (Amarelo)
                     _logger.LogWarning("Canal não suportado: {Canal}", dados.Canal);
                     break;
             }
         }
         catch (Exception ex)
         {
-            // Log de Erro (Vermelho) - O MassTransit vai capturar e iniciar o Retry
             _logger.LogError(ex, "Erro ao processar notificação para {Email}", dados.Email);
             throw;
         }

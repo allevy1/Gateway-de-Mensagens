@@ -1,4 +1,4 @@
-namespace NotificationGateway.Api.Services;
+namespace NotificationGateway.Worker.Services;
 
 public class EmailService : INotificationService
 {

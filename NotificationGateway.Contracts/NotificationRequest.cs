@@ -1,4 +1,4 @@
-﻿namespace NotificationGateway.Api.Requests
+﻿namespace NotificationGateway.Contracts
 {
     public record NotificationRequest
     {
