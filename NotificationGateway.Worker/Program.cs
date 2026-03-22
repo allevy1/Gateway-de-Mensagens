@@ -9,6 +9,8 @@ builder.Services.AddScoped<EmailService>();
 builder.Services.AddScoped<SmsService>();
 builder.Services.AddScoped<WhatsappService>();
 
+var rabbitMqSettings = builder.Configuration.GetSection("RabbitMqSettings").Get<RabbitMqSettings>();
+
 builder.Services.AddMassTransit(x =>
 {
     x.AddConsumer<NotificationRequestConsumer>();
@@ -16,7 +18,15 @@ builder.Services.AddMassTransit(x =>
     x.UsingRabbitMq(
         (context, cfg) =>
         {
-            cfg.Host("localhost", "/");
+            cfg.Host(
+                rabbitMqSettings.Host,
+                "/",
+                h =>
+                {
+                    h.Username(rabbitMqSettings.Username);
+                    h.Password(rabbitMqSettings.Password);
+                }
+            );
 
             cfg.UseMessageRetry(r =>
                 r.Exponential(
